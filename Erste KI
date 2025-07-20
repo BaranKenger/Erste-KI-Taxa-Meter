@@ -1,0 +1,128 @@
+# Erweiterte Hundedatenbank
+hunde_info = {
+    "braun": {
+        "klein": {
+            "kräftig": ["Dackel", "Mops", "Chihuahua", "Französische Bulldogge"],
+            "schmal": ["Yorkshire Terrier", "Jack Russell Terrier", "West Highland Terrier"]
+        },
+        "mittel": {
+            "kräftig": ["Staffordshire Bullterrier", "Beagle", "Cocker Spaniel", "Bulldogge"],
+            "schmal": ["Border Collie", "Australian Shepherd", "Shetland Sheepdog"]
+        },
+        "groß": {
+            "kräftig": ["Deutscher Schäferhund", "Labrador Retriever", "Rottweiler", "Bernhardiner"],
+            "schmal": ["Dobermann", "Weimaraner", "Rhodesian Ridgeback"]
+        }
+    },
+    "schwarz": {
+        "klein": {
+            "kräftig": ["Französische Bulldogge", "Boston Terrier", "Miniature Pinscher"],
+            "schmal": ["Chihuahua", "Zwergpudel", "Malteser"]
+        },
+        "mittel": {
+            "kräftig": ["Rottweiler", "Schwarzer Terrier", "Siberian Husky", "Boxer"],
+            "schmal": ["Siberian Husky", "Dalmatiner", "Whippet"]
+        },
+        "groß": {
+            "kräftig": ["Neufundländer", "Bernhardiner", "Schwarzer Deutscher Schäferhund", "Great Dane"],
+            "schmal": ["Schwarzer Deutscher Schäferhund", "Deutsche Dogge"]
+        }
+    },
+    "weiß": {
+        "klein": {
+            "schmal": ["Malteser", "West Highland Terrier", "Bichon Frisé"],
+            "kräftig": ["Bichon Frisé", "Bulldogge"]
+        },
+        "mittel": {
+            "kräftig": ["Samojede", "Schnauzer", "American Eskimo Dog"],
+            "schmal": ["Whippet", "Kleine Italienische Windspiele"]
+        },
+        "groß": {
+            "kräftig": ["Weißer Schäferhund", "Kuvasz", "Maremmen-Abruzzen-Schäferhund"],
+            "schmal": []
+        }
+    },
+    "golden": {
+        "klein": {
+            "kräftig": [],
+            "schmal": []
+        },
+        "mittel": {
+            "kräftig": ["Golden Retriever", "Nova Scotia Duck Tolling Retriever"],
+            "schmal": []
+        },
+        "groß": {
+            "kräftig": ["Irish Setter", "Chesapeake Bay Retriever", "Flat-Coated Retriever"],
+            "schmal": []
+        }
+    },
+    "grau": {
+        "klein": {
+            "kräftig": ["Italian Greyhound", "Chihuahua"],
+            "schmal": ["Weimaraner Welpe"]
+        },
+        "mittel": {
+            "kräftig": ["Weimaraner", "Siberian Husky"],
+            "schmal": ["Whippet"]
+        },
+        "groß": {
+            "kräftig": ["Deutsche Dogge", "Wolfshund", "Wolfsspitz"],
+            "schmal": []
+        }
+    },
+    "rot": {
+        "klein": {
+            "kräftig": ["Cairn Terrier", "Norfolk Terrier"],
+            "schmal": []
+        },
+        "mittel": {
+            "kräftig": ["Irish Terrier", "Vizsla"],
+            "schmal": []
+        },
+        "groß": {
+            "kräftig": ["Irish Setter", "Drahthaariger Vorstehhund"],
+            "schmal": []
+        }
+    },
+    "mehrfarbig": {
+        "klein": {
+            "kräftig": ["Australian Terrier", "Jack Russell Terrier"],
+            "schmal": []
+        },
+        "mittel": {
+            "kräftig": ["Beagle", "Border Collie"],
+            "schmal": []
+        },
+        "groß": {
+            "kräftig": ["Berner Sennenhund", "Großer Schweizer Sennenhund"],
+            "schmal": []
+        }
+    }
+}
+
+# Helferfunkton zu sicheren eingaben
+def sichere_eingabe(frage,erlaubt_werte):
+    while True:
+        eingabe = input(frage).lower().strip()
+        if eingabe in erlaubt_werte:
+            return eingabe
+        else:
+                print(f"´{eingabe}´ kenne ich nicht. Gültige option: {', '.join(erlaubt_werte)}\n")
+
+# Funktion zur Abfrage und Ausgabe
+def hunde_finden():
+    print("wilkommen bei der hunde Ki / bitte beantworte paar fragen")
+def hunde_finden():
+    farbe = input("Welche Farbe hat der Hund? ").lower().strip()
+    größe = input("Welche Größe hat der Hund? (klein, mittel, groß) ").lower().strip()
+    körperbau = input("Wie ist der Körperbau? (kräftig, schmal) ").lower().strip()
+
+    rassen = hunde_info[farbe][größe][körperbau]
+    if rassen:
+        print("\nDiese Hunderassen passen zu deiner Beschreibung:")
+        print(", ".join(rassen))
+    else:
+        print("\nFür diese Kombination habe ich leider keine passenden Rassen gefunden.")
+
+# Programm starten
+hunde_finden()
