@@ -1,9 +1,0 @@
-grundpreis = 2.10
-km = int(input( " bitte geben sie die zu fahrenden kilometer an: ") )
-if km < 5:
-    costs = 2.10
-
-else:
-    costs = 2.0
-total = grundpreis + costs * km
-print(" ihr zu zahlender preis ist" , total)
